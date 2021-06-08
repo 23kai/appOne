@@ -11,10 +11,12 @@ void gmain(){
 	rad = 0;
 	h = 3.0;
 	b = y+vy;
-	float q, p,k;
+	float q, p,k,l,o;
 	q = 0;
 	p = 300;
 	k = 100;
+	l = 0;
+	o = 0;
 	while (notQuit) {
 	clear(0, 149, 217);
 
@@ -92,15 +94,34 @@ void gmain(){
 		h += 0.05;
 	}
 	*/
+
+	/*ëÃóÕÉoÅ[
 	fill(255);
 	rect(k, k, p, 50);
 	fill(200, 100, 100);
 	rect(k, k, p+q, 50);
-	
+	if (p + q <= 500 && p + q >= 0) {
 	q += -1;
-	if (p + q < 0) {
-		textSize(50);
-		text("GAME OVER", 150, 300);
 	}
+	if(p + q < 0) {
+		textSize(50);
+		text("SCORE", 150, 300);
+		text(l, 150, 400);
+	}
+	if (isTrigger(KEY_Z)) {
+		if (l < 10) {
+			l++;
+			q = 0;
+		}
+		else if (l < 20) {
+			l++;
+			q += 10;
+		}
+		else {
+			l++;
+			q += 8;
+		}
+	}
+	*/
 	}
 }
