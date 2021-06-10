@@ -2,7 +2,7 @@
 #include "libone.h"
 
 void gmain(){
-	window(500, 800);
+	window(1920, 1080);
 	float x,y,vx, vy,rad,h,b;
 	x = (width / 2);
 	y = (height / 2 - 100);
@@ -17,8 +17,15 @@ void gmain(){
 	k = 100;
 	l = 0;
 	o = 0;
+	float playerlife,enemylife,offsetX,offsetY,space,X,Y,radius;
+	playerlife = 5;
+	enemylife = 5;
+	space = 100;
+	Y = 100;
+	X = 50;
+	radius = 200;
 	while (notQuit) {
-	clear(0, 149, 217);
+		clear(0, 149, 217);
 
 		/*Easy Graphics Coding‚É‚ ‚é}Œ`‚Åì‚Á‚½á‚¾‚é‚Ü
 		stroke(255);
@@ -71,57 +78,82 @@ void gmain(){
 		}
 		*/
 	
-	//‰~‚ªã‰º‚É“®‚­‚à‚Ì
-	/*
-	textSize(20);
-	text(y+vy, 0, 20);
-	text(h, 0, 40);
-	angleMode(DEGREES);
-	strokeWeight(5);
-	fill(200, 50, 50);
-	circle(x, y+vy, 145);
-	fill(255);
-	rectMode(CENTER);
-	rect(x, y+vy, 100, 100, rad);
-	line(x, y + vy, 0, height / 2);
-	vy += h;
-	rad += h;
+		//‰~‚ªã‰º‚É“®‚­‚à‚Ì
+		/*
+		textSize(20);
+		text(y+vy, 0, 20);
+		text(h, 0, 40);
+		angleMode(DEGREES);
+		strokeWeight(5);
+		fill(200, 50, 50);
+		circle(x, y+vy, 145);
+		fill(255);
+		rectMode(CENTER);
+		rect(x, y+vy, 100, 100, rad);
+		line(x, y + vy, 0, height / 2);
+		vy += h;
+		rad += h;
 	
-	if (y + vy+100 > height && h <= 3) {
-		h += -0.05;
-	}
-	if (y + vy - 100 < 0 && h >= -3) {
-		h += 0.05;
-	}
-	*/
+		if (y + vy+100 > height && h <= 3) {
+			h += -0.05;
+		}
+		if (y + vy - 100 < 0 && h >= -3) {
+			h += 0.05;
+		}
+		*/
 
-	/*‘Ì—Íƒo[
-	fill(255);
-	rect(k, k, p, 50);
-	fill(200, 100, 100);
-	rect(k, k, p+q, 50);
-	if (p + q <= 500 && p + q >= 0) {
-	q += -1;
-	}
-	if(p + q < 0) {
-		textSize(50);
-		text("SCORE", 150, 300);
-		text(l, 150, 400);
-	}
-	if (isTrigger(KEY_Z)) {
-		if (l < 10) {
-			l++;
-			q = 0;
+		/*‘Ì—Íƒo[
+		fill(255);
+		rect(k, k, p, 50);
+		fill(200, 100, 100);
+		rect(k, k, p+q, 50);
+		if (p + q <= 500 && p + q >= 0) {
+		q += -1;
 		}
-		else if (l < 20) {
-			l++;
-			q += 10;
+		if(p + q < 0) {
+			textSize(50);
+			text("SCORE", 150, 300);
+			text(l, 150, 400);
 		}
-		else {
-			l++;
-			q += 8;
+		if (isTrigger(KEY_Z)) {
+			if (l < 10) {
+				l++;
+				q = 0;
+			}
+			else if (l < 20) {
+				l++;
+				q += 10;
+			}
+			else {
+				l++;
+				q += 8;
+			}
 		}
-	}
-	*/
+		*/
+
+		/*‘Ì—Í‚É‰‚¶‚Ä‰~‚ğ‘‚â‚·AŒ¸‚ç‚·
+		if (isTrigger(KEY_A)&&playerlife>0 || isTrigger(KEY_S)&&enemylife>0 || isTrigger(KEY_D)&&playerlife<10 || isTrigger(KEY_W)&&enemylife<10) {
+			if (isTrigger(KEY_A)) { playerlife--; }
+			else if (isTrigger(KEY_D)) { playerlife++; }
+			else if (isTrigger(KEY_W)) { enemylife++; }
+			else { enemylife--; }
+		}
+		int i = 0;
+		while (i<playerlife) {
+			offsetX = space * i;
+			fill(50, 100, 200);
+			circle(X + offsetX, Y, radius);
+			i++;
+		}
+
+		for (int v = 0; v < enemylife; v++) {
+			offsetX = space * v;
+			offsetY = space * 2;
+			fill(200, 100, 100);
+			circle(X + offsetX, Y+offsetY, radius);
+		}
+		*/
+
+
 	}
 }
